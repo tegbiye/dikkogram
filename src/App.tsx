@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import './globals.css';
 import SigninForm from './_auth/forms/SigninForm';
 import Home from './_root/Pages/Home';
+import AuthLayout from './_auth/AuthLayout';
+
 
 const App = () => {
   return (
@@ -14,8 +16,10 @@ const App = () => {
         <Route path='/sign-up' element={<SigninForm />} />
       </Routes>
       {/** private routes */}
+      <Route element={<AuthLayout />}>
+          <Route index element={<Home />} />
+      </Route>
       
-      <Route index element={<Home />} />
     </main>
   )
 }
